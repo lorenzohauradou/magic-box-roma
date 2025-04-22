@@ -4,65 +4,97 @@ import { useEffect, useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Star, ArrowLeft, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 const testimonials = [
   {
-    name: "Marco Bianchi",
-    role: "Privato",
+    name: "Marco Marino",
+    role: "Cliente Privato",
     content:
-      "Ho dovuto spedire un oggetto delicato all'estero e grazie a Magic Box Roma è arrivato perfettamente integro. Servizio impeccabile e personale gentilissimo!",
+      "Ho affidato a Magic Box Roma la spedizione di un oggetto di valore verso l'estero. Imballaggio perfetto e consegna puntuale. Il tracking online mi ha permesso di seguire la spedizione in ogni momento. Servizio eccellente!",
     rating: 5,
+    image: "/persona1.png"
   },
   {
-    name: "Laura Rossi",
-    role: "Imprenditrice",
+    name: "Giovanni Martini",
+    role: "Direttore Operativo - TechItalia S.r.l.",
     content:
-      "Utilizziamo Magic Box Roma per tutte le spedizioni della nostra azienda. Puntualità e professionalità al top, oltre a prezzi competitivi. Consigliatissimo!",
+      "Come azienda tech abbiamo bisogno di spedire prodotti elettronici delicati ai nostri clienti in tutta Europa. Magic Box Roma garantisce sempre la massima sicurezza e puntualità. In 3 anni di collaborazione non abbiamo mai avuto problemi.",
     rating: 5,
+    image: "/persona2.png"
   },
   {
-    name: "Giovanni Verdi",
-    role: "Artigiano",
+    name: "Laura Ferretti",
+    role: "Titolare - Artigianato Martini",
     content:
-      "I miei prodotti artigianali hanno bisogno di un'attenzione particolare nell'imballaggio. Con Magic Box Roma ho trovato la soluzione perfetta per le mie spedizioni.",
-    rating: 4,
+      "La mia attività di artigianato richiede spedizioni particolari per oggetti fragili e di design. Magic Box Roma ha sempre trovato soluzioni personalizzate per le mie esigenze. Professionalità impeccabile e prezzi competitivi.",
+    rating: 5,
+    image: "/persona3.png"
   },
   {
-    name: "Francesca Neri",
-    role: "Designer",
+    name: "Francesca Ricci",
+    role: "Cliente Privato",
     content:
-      "Il servizio di ritiro a domicilio è stato fondamentale per la mia attività. Comodo, veloce e affidabile. Utilizzerò sicuramente di nuovo Magic Box Roma.",
+      "Dovevo spedire urgentemente dei documenti importanti. Il servizio Pony Express di Magic Box Roma è stato perfetto: ritiro a domicilio e consegna in giornata. La comunicazione è stata eccellente e il prezzo molto onesto. Consigliatissimo!",
     rating: 5,
+    image: "/persona4.png"
   },
   {
-    name: "Roberto Marini",
-    role: "Collezionista",
+    name: "Roberto Conti",
+    role: "Responsabile Logistica - Moda Milano S.p.A.",
     content:
-      "Quando devo spedire i pezzi della mia collezione mi affido solo a Magic Box Roma. La cura nell'imballaggio e la sicurezza nella consegna sono fondamentali per me.",
+      "La nostra azienda di moda necessita di un partner logistico affidabile per l'invio di campionari e prodotti di alto valore. Magic Box Roma offre un servizio premium con opzioni di assicurazione complete. Partnership preziosa per la nostra crescita.",
     rating: 5,
-  },
-  {
-    name: "Elena Ferretti",
-    role: "E-commerce Owner",
-    content:
-      "Da quando collaboriamo con Magic Box Roma per le spedizioni del nostro e-commerce, i reclami per danni sono praticamente scomparsi. Servizio eccellente!",
-    rating: 5,
+    image: "/persona5.png"
   },
 ]
 
 export default function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+  const [isTablet, setIsTablet] = useState(false)
 
-  const displayCount = 1 // Numero di testimonianze visibili su mobile
-  const displayCountDesktop = 3 // Numero di testimonianze visibili su desktop
+  // Numero fisso di testimonianze visibili in base alla viewport
+  const displayCount = 1 // mobile
+  const displayCountTablet = 2 // tablet
+  const displayCountDesktop = 3 // desktop
+  
+  // Calcolo numero massimo di pagine possibili (solo 2 pagine sul desktop)
+  const maxPages = 2
+
+  // Gestione dimensioni viewport
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768)
+      setIsTablet(window.innerWidth >= 768 && window.innerWidth < 1024)
+    }
+    
+    // Imposta i valori iniziali
+    handleResize()
+    
+    // Aggiungi l'event listener
+    window.addEventListener('resize', handleResize)
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   const nextTestimonial = () => {
     if (isAnimating) return
 
     setIsAnimating(true)
     setTimeout(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % (testimonials.length - displayCountDesktop + 1))
+      if (isMobile) {
+        // Su mobile, ci sono 5 pagine (una per ogni testimonial)
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
+      } else if (isTablet) {
+        // Su tablet, ci sono 3 pagine (mostra 2 testimonial alla volta)
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % 3)
+      } else {
+        // Su desktop ci saranno solo 2 pagine (0 e 1)
+        setCurrentIndex((prevIndex) => prevIndex === 0 ? 1 : 0)
+      }
       setIsAnimating(false)
     }, 300)
   }
@@ -72,9 +104,38 @@ export default function TestimonialsSection() {
 
     setIsAnimating(true)
     setTimeout(() => {
-      setCurrentIndex((prevIndex) => (prevIndex === 0 ? testimonials.length - displayCountDesktop : prevIndex - 1))
+      if (isMobile) {
+        // Su mobile, ci sono 5 pagine (una per ogni testimonial)
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length)
+      } else if (isTablet) {
+        // Su tablet, ci sono 3 pagine (mostra 2 testimonial alla volta)
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + 3) % 3)
+      } else {
+        // Su desktop ci saranno solo 2 pagine (0 e 1)
+        setCurrentIndex((prevIndex) => prevIndex === 1 ? 0 : 1)
+      }
       setIsAnimating(false)
     }, 300)
+  }
+
+  // Funzione per filtrare i testimonial da mostrare
+  const getVisibleTestimonials = () => {
+    if (isMobile) {
+      // Su mobile mostra solo un testimonial
+      return [testimonials[currentIndex % testimonials.length]];
+    } else if (isTablet) {
+      // Su tablet mostra due testimonial
+      const startIdx = (currentIndex * displayCountTablet) % testimonials.length;
+      return [
+        testimonials[startIdx],
+        testimonials[(startIdx + 1) % testimonials.length]
+      ].filter(Boolean);
+    } else {
+      // Su desktop, prima pagina: primi 3, seconda pagina: ultimi 2
+      return currentIndex === 0 
+        ? testimonials.slice(0, 3)  // Prima pagina: primi 3 testimonial
+        : testimonials.slice(3);    // Seconda pagina: ultimi 2 testimonial
+    }
   }
 
   useEffect(() => {
@@ -117,16 +178,22 @@ export default function TestimonialsSection() {
           <div
             className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-opacity duration-300 ${isAnimating ? "opacity-0" : "opacity-100"}`}
           >
-            {testimonials.slice(currentIndex, currentIndex + displayCountDesktop).map((testimonial, index) => (
+            {getVisibleTestimonials().map((testimonial, index) => (
               <Card 
-                key={index} 
-                className={`shadow-lg border-none hover:shadow-xl transition-all duration-300 ${index >= displayCount ? 'hidden md:block' : ''}`}
+                key={testimonial.name} 
+                className="shadow-lg border-none hover:shadow-xl transition-all duration-300"
               >
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-3">
-                      <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center text-primary font-bold">
-                        {testimonial.name.charAt(0)}
+                      <div className="h-12 w-12 rounded-full overflow-hidden">
+                        <Image 
+                          src={testimonial.image} 
+                          alt={testimonial.name} 
+                          width={48} 
+                          height={48} 
+                          className="object-cover w-full h-full"
+                        />
                       </div>
                       <div>
                         <p className="font-semibold text-secondary">{testimonial.name}</p>
@@ -154,12 +221,12 @@ export default function TestimonialsSection() {
               size="icon"
               className="rounded-full"
               onClick={prevTestimonial}
-              disabled={currentIndex === 0}
+              disabled={isMobile ? false : currentIndex === 0}
             >
               <ArrowLeft className="h-4 w-4" />
             </Button>
 
-            {[...Array(testimonials.length - displayCountDesktop + 1)].map((_, index) => (
+            {[...Array(isMobile ? testimonials.length : isTablet ? 3 : maxPages)].map((_, index) => (
               <Button
                 key={index}
                 variant={currentIndex === index ? "default" : "outline"}
@@ -176,7 +243,7 @@ export default function TestimonialsSection() {
               size="icon"
               className="rounded-full"
               onClick={nextTestimonial}
-              disabled={currentIndex >= testimonials.length - displayCountDesktop}
+              disabled={isMobile ? false : (isTablet ? currentIndex >= 2 : currentIndex >= maxPages - 1)}
             >
               <ArrowRight className="h-4 w-4" />
             </Button>
