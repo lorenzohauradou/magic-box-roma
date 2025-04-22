@@ -32,7 +32,7 @@ const testimonials = [
     image: "/persona3.png"
   },
   {
-    name: "Francesca Ricci",
+    name: "Andrea Manzi",
     role: "Cliente Privato",
     content:
       "Dovevo spedire urgentemente dei documenti importanti. Il servizio Pony Express di Magic Box Roma è stato perfetto: ritiro a domicilio e consegna in giornata. La comunicazione è stata eccellente e il prezzo molto onesto. Consigliatissimo!",
