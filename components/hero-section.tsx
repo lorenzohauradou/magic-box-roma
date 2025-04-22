@@ -99,7 +99,7 @@ export default function HeroSection() {
             <div className="absolute -top-16 -right-16 h-80 w-80 bg-primary/20 rounded-full blur-3xl"></div>
             <div className="relative h-full w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 animate-float">
               <Image
-                src="/placeholder.svg?height=800&width=600"
+                src="/spedizione_hero.jpg"
                 alt="Servizi di spedizione professionali"
                 fill
                 className="object-cover"

@@ -46,16 +46,16 @@ export default function FeaturesSection() {
             <div className="absolute -top-10 -left-10 h-64 w-64 bg-primary/10 rounded-full blur-3xl"></div>
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/placeholder.svg?height=800&width=800"
+                src="/front.jpg"
                 alt="Magic Box Roma Servizi"
                 width={600}
                 height={600}
                 className="object-cover w-full h-auto"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-secondary to-transparent h-1/3"></div>
-              <div className="absolute bottom-6 left-6 bg-white rounded-lg p-4 shadow-lg">
-                <p className="text-sm font-semibold text-secondary">Servizi di spedizione professionali</p>
-                <p className="text-xs text-gray-500">Dal 2010 al vostro servizio</p>
+              <div className="absolute bottom-2 left-2 sm:bottom-6 sm:left-6 bg-gradient-to-r from-white to-gray-200 rounded-lg p-2 sm:p-4 shadow-lg max-w-[85%] sm:max-w-none">
+                <p className="text-xs sm:text-sm font-semibold text-secondary">Servizi di spedizione professionali</p>
+                <p className="text-[10px] sm:text-xs text-gray-600">Al servizio di privati e aziende</p>
               </div>
             </div>
           </div>
