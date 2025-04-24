@@ -97,14 +97,53 @@ export default function HeroSection() {
             className={`relative h-[500px] transition-all duration-1000 delay-300 ${isVisible ? "opacity-100" : "opacity-0 translate-y-10"}`}
           >
             <div className="absolute -top-16 -right-16 h-80 w-80 bg-primary/20 rounded-full blur-3xl"></div>
-            <div className="relative h-full w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 animate-float">
-              <Image
-                src="/spedizione_hero.jpg"
-                alt="Servizi di spedizione professionali"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+            <div className="relative h-full w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 animate-float opacity-70">
+              {/* Versione desktop */}
+              <div className="hidden md:block relative w-full h-full">
+                <Image
+                  src="/hero2.jpg"
+                  alt="Servizi di spedizione professionali"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute bottom-6 left-6 right-6 max-w-md bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-xl border border-white/50 transition-all duration-300 group">
+                  <div className="absolute -right-2 -top-2 bg-primary text-white text-xs px-2 py-0.5 rounded-full font-bold tracking-wide shadow-md transform rotate-2">PROFESSIONALI</div>
+                  <div className="flex items-start gap-3">
+                    <div className="rounded-full bg-primary/20 p-2 flex-shrink-0">
+                      <PackageCheck className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-secondary">Magic Box Roma</p>
+                      <p className="text-xs text-gray-600 mt-1 group-hover:text-primary transition-colors">La tua soluzione professionale per ogni spedizione</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Versione mobile */}
+              <div className="block md:hidden relative w-full h-full">
+                <Image
+                  src="/hero2.jpg"
+                  alt="Servizi di spedizione professionali"
+                  fill
+                  className="object-cover scale-[1.05]"
+                  sizes="100vw"
+                  priority
+                />
+                <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-xl border border-white/50 group">
+                  <div className="absolute -right-2 -top-2 bg-primary text-white text-xs px-2 py-0.5 rounded-full font-bold tracking-wide shadow-md transform rotate-2">PROFESSIONALI</div>
+                  <div className="flex items-start gap-3">
+                    <div className="rounded-full bg-primary/20 p-2 flex-shrink-0">
+                      <PackageCheck className="h-4 w-4 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-secondary">Magic Box Roma</p>
+                      <p className="text-[10px] text-gray-600 mt-0.5 group-hover:text-primary transition-colors">La tua soluzione per ogni spedizione</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
