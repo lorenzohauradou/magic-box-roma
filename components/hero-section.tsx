@@ -108,7 +108,7 @@ export default function HeroSection() {
                   priority
                 />
                 <div className="absolute bottom-6 left-6 right-6 max-w-md bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-xl border border-white/50 transition-all duration-300 group">
-                  <div className="absolute -right-2 -top-2 bg-primary text-white text-xs px-2 py-0.5 rounded-full font-bold tracking-wide shadow-md transform rotate-2">PROFESSIONALI</div>
+                  <div className="absolute -right-2 -top-2 bg-primary text-white text-xs px-2 py-0.5 rounded-full font-bold tracking-wide shadow-md transform rotate-2">PROFESSIONALITÀ</div>
                   <div className="flex items-start gap-3">
                     <div className="rounded-full bg-primary/20 p-2 flex-shrink-0">
                       <PackageCheck className="h-5 w-5 text-primary" />
@@ -132,7 +132,7 @@ export default function HeroSection() {
                   priority
                 />
                 <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-xl border border-white/50 group">
-                  <div className="absolute -right-2 -top-2 bg-primary text-white text-xs px-2 py-0.5 rounded-full font-bold tracking-wide shadow-md transform rotate-2">PROFESSIONALI</div>
+                  <div className="absolute -right-2 -top-2 bg-primary text-white text-xs px-2 py-0.5 rounded-full font-bold tracking-wide shadow-md transform rotate-2">PROFESSIONALITÀ</div>
                   <div className="flex items-start gap-3">
                     <div className="rounded-full bg-primary/20 p-2 flex-shrink-0">
                       <PackageCheck className="h-4 w-4 text-primary" />
