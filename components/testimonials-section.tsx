@@ -17,7 +17,7 @@ const testimonials = [
   },
   {
     name: "Giovanni Martini",
-    role: "Direttore Operativo - TechItalia S.r.l.",
+    role: "Direttore Operativo",
     content:
       "Come azienda tech abbiamo bisogno di spedire prodotti elettronici delicati ai nostri clienti in tutta Europa. Magic Box Roma garantisce sempre la massima sicurezza e puntualità. In 3 anni di collaborazione non abbiamo mai avuto problemi.",
     rating: 5,
@@ -25,23 +25,23 @@ const testimonials = [
   },
   {
     name: "Laura Ferretti",
-    role: "Titolare - Artigianato Martini",
+    role: "Titolare - Artigianato Ferretti",
     content:
       "La mia attività di artigianato richiede spedizioni particolari per oggetti fragili e di design. Magic Box Roma ha sempre trovato soluzioni personalizzate per le mie esigenze. Professionalità impeccabile e prezzi competitivi.",
-    rating: 5,
+    rating: 4,
     image: "/persona3.png"
   },
   {
     name: "Andrea Manzi",
     role: "Cliente Privato",
     content:
-      "Dovevo spedire urgentemente dei documenti importanti. Il servizio Pony Express di Magic Box Roma è stato perfetto: ritiro a domicilio e consegna in giornata. La comunicazione è stata eccellente e il prezzo molto onesto. Consigliatissimo!",
-    rating: 5,
+      "Come azienda di arredamento di lusso, Magic Box Roma è il partner perfetto per le nostre spedizioni di valore. Il loro servizio di imballaggio professionale e le complete opzioni di assicurazione garantiscono la massima sicurezza dei nostri prodotti. Un supporto fondamentale per il nostro business.",
+    rating: 4,
     image: "/persona4.png"
   },
   {
     name: "Roberto Conti",
-    role: "Responsabile Logistica - Moda Milano S.p.A.",
+    role: "Responsabile Logistica",
     content:
       "La nostra azienda di moda necessita di un partner logistico affidabile per l'invio di campionari e prodotti di alto valore. Magic Box Roma offre un servizio premium con opzioni di assicurazione complete. Partnership preziosa per la nostra crescita.",
     rating: 5,
