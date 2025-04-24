@@ -75,7 +75,7 @@ export default function FeaturesSection() {
 
             <p className="text-gray-600">
               Tra i servizi più richiesti, oltre agli imballaggi professionali e alle spedizioni, puoi usufruire di
-              ritiri a domicilio dei tuoi oggetti, servizio di pony Express Roma su Roma con consegne in giornata,
+              ritiri a domicilio dei tuoi oggetti, servizio di spedizione Express su Roma con consegne in giornata,
               servizio di domiciliazione e magazzinaggio e molto altro...
             </p>
 
