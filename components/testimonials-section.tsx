@@ -9,7 +9,7 @@ import Image from "next/image"
 const testimonials = [
   {
     name: "Gianmarco Faraoni",
-    role: "Privata",
+    role: "CEO - Azienda di Forniture",
     content:
       "Collaboro con Magic box da quasi 6 mesi ormai, servendomi,per la mia società con la quale effettuo forniture di vario genere, del Servizio di logistica e spedizione! Grazie alla loro disponibilità e professionalità gestisco il tutto dal mio telefono! Disponibili nel risolvere qualsiasi intoppo si possa creare e rapidi nella gestione e soluzione del tutto! Ragazzi giovani e super preparati! Proseguiamo con la nostra collaborazione! Avanti tutta, sempre al top!",
     rating: 5,
@@ -17,7 +17,7 @@ const testimonials = [
   },
   {
     name: "Francesca Citarella",
-    role: "Founder",
+    role: "E-commerce - Founder",
     content:
       "Ho iniziato a lavorare con loro e mi sono trovata subito benissimo. Ho uno shoponline e loro seguono e si occupano delle mie spedizioni dall'inizio alla fine. Consigliati e approvati!",
     rating: 5,
