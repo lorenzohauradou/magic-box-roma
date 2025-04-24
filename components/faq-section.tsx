@@ -148,7 +148,12 @@ export default function FaqSection() {
 
           <div className="mt-16 text-center">
             <p className="text-gray-600 mb-6 text-lg">Hai altre domande?</p>
-            <a href="#contact" className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-colors">
+            <a 
+              href="https://wa.me/393515947075?text=Ciao%2C%20necessito%20maggiori%20informazioni%20riguardo%20ai%20vostri%20servizi."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-colors"
+            >
               Contatta il nostro team di supporto
             </a>
           </div>

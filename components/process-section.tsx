@@ -106,13 +106,19 @@ export default function ProcessSection() {
         </div>
 
         <div className="text-center mt-16 reveal">
-          <Button
-            size="lg"
-            className="bg-primary hover:bg-primary-600 text-white font-medium rounded-md group transition-all"
+          <a 
+            href="https://wa.me/393515947075?text=Ciao%2C%20necessito%20maggiori%20informazioni%20riguardo%20ai%20vostri%20servizi."
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Inizia Ora
-            <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
-          </Button>
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary-600 text-white font-medium rounded-md group transition-all"
+            >
+              Inizia Ora
+              <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </a>
         </div>
       </div>
     </section>
