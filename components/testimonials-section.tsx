@@ -8,45 +8,46 @@ import Image from "next/image"
 
 const testimonials = [
   {
-    name: "Marco Marino",
+    name: "Gianmarco Faraoni",
+    role: "Privata",
+    content:
+      "Collaboro con Magic box da quasi 6 mesi ormai, servendomi,per la mia società con la quale effettuo forniture di vario genere, del Servizio di logistica e spedizione! Grazie alla loro disponibilità e professionalità gestisco il tutto dal mio telefono! Disponibili nel risolvere qualsiasi intoppo si possa creare e rapidi nella gestione e soluzione del tutto! Ragazzi giovani e super preparati! Proseguiamo con la nostra collaborazione! Avanti tutta, sempre al top!",
+    rating: 5,
+    image: "/persona5.png"
+  },
+  {
+    name: "Francesca Citarella",
+    role: "Founder",
+    content:
+      "Ho iniziato a lavorare con loro e mi sono trovata subito benissimo. Ho uno shoponline e loro seguono e si occupano delle mie spedizioni dall'inizio alla fine. Consigliati e approvati!",
+    rating: 5,
+    image: "/persona3.png"
+  },
+  {
+    name: "Arturo Nanni",
     role: "Cliente Privato",
     content:
-      "Ho affidato a Magic Box Roma la spedizione di un oggetto di valore verso l'estero. Imballaggio perfetto e consegna puntuale. Il tracking online mi ha permesso di seguire la spedizione in ogni momento. Servizio eccellente!",
+      "Un punto eccezionale per ricevere e spedire pacchi di ogni genere. Il personale molto gentile e preciso nei veri servizi Bravi Magic Box e complimenti per il vostro lavoro con simpatia e ammirazione Arthur Nanni",
     rating: 5,
     image: "/persona1.png"
   },
   {
-    name: "Giovanni Martini",
-    role: "Direttore Operativo",
-    content:
-      "Come azienda tech abbiamo bisogno di spedire prodotti elettronici delicati ai nostri clienti in tutta Europa. Magic Box Roma garantisce sempre la massima sicurezza e puntualità. In 3 anni di collaborazione non abbiamo mai avuto problemi.",
-    rating: 5,
-    image: "/persona2.png"
-  },
-  {
-    name: "Laura Ferretti",
-    role: "Titolare - Artigianato Ferretti",
-    content:
-      "La mia attività di artigianato richiede spedizioni particolari per oggetti fragili e di design. Magic Box Roma ha sempre trovato soluzioni personalizzate per le mie esigenze. Professionalità impeccabile e prezzi competitivi.",
-    rating: 4,
-    image: "/persona3.png"
-  },
-  {
-    name: "Andrea Manzi",
+    name: "Edoardo Scrima",
     role: "Cliente Privato",
     content:
-      "Come azienda di arredamento di lusso, Magic Box Roma è il partner perfetto per le nostre spedizioni di valore. Il loro servizio di imballaggio professionale e le complete opzioni di assicurazione garantiscono la massima sicurezza dei nostri prodotti. Un supporto fondamentale per il nostro business.",
-    rating: 4,
+      "Servizio ottimo. Ho chiesto loro di spedirmi un pacco in Francia, a Parigi, e sono stati super efficienti. Dopo neanche 5 giorni il pacco era già arrivato a casa. Inoltre il personale è cordiale e disponibile a cercare di soddisfare ogni richiesta del cliente.",
+    rating: 5,
     image: "/persona4.png"
   },
   {
-    name: "Roberto Conti",
-    role: "Responsabile Logistica",
+    name: "Alessandro Valeri",
+    role: "Privato",
     content:
-      "La nostra azienda di moda necessita di un partner logistico affidabile per l'invio di campionari e prodotti di alto valore. Magic Box Roma offre un servizio premium con opzioni di assicurazione complete. Partnership preziosa per la nostra crescita.",
+      "Abbiamo contattato la magic.box. per la spedizione delle valigie per la nostra settimana bianca, che dire! Esperienza fantastica precisi e puntuali sia all'andata che al ritorno, ragazzi in gamba, gentili ed economici. Sicuramente consigliato.",
     rating: 5,
-    image: "/persona5.png"
+    image: "/persona2.png"
   },
+
 ]
 
 export default function TestimonialsSection() {
