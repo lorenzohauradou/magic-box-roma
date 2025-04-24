@@ -28,7 +28,7 @@ const services = [
   },
   {
     icon: <Clock className="h-12 w-12 text-primary" />,
-    title: "Pony Express",
+    title: "Servizio Express",
     description: "Servizio rapido di consegna in giornata su Roma. La soluzione ideale per l'urgenza metropolitana.",
     color: "bg-gradient-to-br from-secondary-50 to-secondary-100",
   },
