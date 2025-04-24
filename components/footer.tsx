@@ -6,7 +6,6 @@ export default function Footer() {
 
   return (
     <footer className="bg-secondary text-white pt-20 text-center md:text-left">
-      <div className="absolute h-80 w-80 bg-primary/20 rounded-full blur-3xl"></div>
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 pb-10">
           <div>
