@@ -106,6 +106,7 @@ export default function StoreSection() {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 className="grayscale hover:grayscale-0 transition-all duration-300"
+                title="Mappa Google che mostra la posizione del negozio Magic Box Roma"
               />
               <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-secondary/80 to-transparent">
                 <h3 className="text-3xl font-bold text-white mb-2">Magic Box Roma</h3>

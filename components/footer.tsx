@@ -27,6 +27,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/70 hover:text-primary transition-colors"
+                aria-label="Seguici su Facebook (apre in nuova scheda)"
               >
                 <Facebook className="h-5 w-5" />
               </Link>
@@ -35,6 +36,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/70 hover:text-primary transition-colors"
+                aria-label="Seguici su Instagram (apre in nuova scheda)"
               >
                 <Instagram className="h-5 w-5" />
               </Link>

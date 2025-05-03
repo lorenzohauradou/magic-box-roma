@@ -88,7 +88,8 @@ export default function Navbar() {
           <button
             className="lg:hidden z-20"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={isMobileMenuOpen ? "Chiudi menu" : "Apri menu"}
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
               <X className={`h-6 w-6 ${isScrolled ? "text-secondary" : "text-white"}`} />
