@@ -13,20 +13,8 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section id="home" className="relative w-full min-h-screen flex items-center pt-16 overflow-hidden">
-      {/* Background image and overlay */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/placeholder.svg?height=1080&width=1920"
-          alt="Servizi di spedizione e imballaggio"
-          fill
-          priority
-          className="object-cover brightness-50"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 to-secondary/70" />
-      </div>
-
+    <section id="home" className="relative w-full min-h-screen flex items-center pt-16 overflow-hidden bg-gradient-to-r from-secondary/90 to-secondary/70">
+      <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 to-secondary/70"></div>
       <div className="container mx-auto px-4 md:px-6 z-10 pt-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div
