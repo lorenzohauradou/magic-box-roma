@@ -13,7 +13,7 @@ export default function WhatsAppButton() {
       aria-label="Contattaci su WhatsApp"
     >
       <Image
-        src="/whatsapp.png"
+        src="/whatsapp.webp"
         alt="WhatsApp"
         width={24}
         height={24}

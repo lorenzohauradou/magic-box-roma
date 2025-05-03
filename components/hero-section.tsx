@@ -89,7 +89,7 @@ export default function HeroSection() {
               {/* Versione desktop */}
               <div className="hidden md:block relative w-full h-full">
                 <Image
-                  src="/hero_front1.jpg"
+                  src="/hero_front1.webp"
                   alt="Servizi di spedizione professionali"
                   fill
                   className="object-cover"
@@ -112,7 +112,7 @@ export default function HeroSection() {
               {/* Versione mobile */}
               <div className="block md:hidden relative w-full h-full">
                 <Image
-                  src="/hero_front1.jpg"
+                  src="/hero_front1.webp"
                   alt="Servizi di spedizione professionali"
                   fill
                   className="object-cover scale-[1.05]"

@@ -46,7 +46,7 @@ export default function FeaturesSection() {
             <div className="absolute -top-10 -left-10 h-64 w-64 bg-primary/10 rounded-full blur-3xl"></div>
             <div className="relative rounded-2xl overflow-hidden shadow-2xl md:scale-75">
               <Image
-                src="/pointing_screen.jpg"
+                src="/pointing_screen-1.webp"
                 alt="Magic Box Roma Servizi"
                 width={500}
                 height={500}
