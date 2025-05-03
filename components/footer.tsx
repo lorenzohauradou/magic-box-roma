@@ -71,7 +71,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="#" className="text-white/70 hover:text-primary transition-colors">
-                  Pony Express Roma
+                  Servizio Express Roma
                 </Link>
               </li>
               <li>
