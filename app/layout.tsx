@@ -1,11 +1,10 @@
 import type React from "react"
 import "@/app/globals.css"
-import { Outfit } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 
-const outfit = Outfit({ subsets: ["latin"] })
+
 
 export const metadata = {
   title: "Magic Box Roma - Spedizioni, Imballaggi e Servizi",
@@ -19,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="it" suppressHydrationWarning>
-      <body className={outfit.className}>
+      <body>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <Navbar />
           {children}
