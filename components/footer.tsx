@@ -18,8 +18,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-white/70 mb-6">
-              Soluzioni professionali di spedizione e imballaggio per privati e aziende. Dal 2010 al vostro servizio con
-              qualità e affidabilità.
+              Soluzioni professionali di spedizione e imballaggio per privati e aziende.
             </p>
             <div className="flex justify-center md:justify-start space-x-4">
               <Link
