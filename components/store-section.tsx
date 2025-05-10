@@ -62,7 +62,7 @@ export default function StoreSection() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-secondary text-lg">Orari di Apertura</h3>
-                  <p className="text-gray-600">Lun-Ven: 9:00 - 19:00</p>
+                  <p className="text-gray-600">Lun-Ven: 9:00 - 13:00 / 14:30 - 19:00</p>
                   <p className="text-gray-600">Sab: 9:00 - 13:00</p>
                 </div>
               </div>
