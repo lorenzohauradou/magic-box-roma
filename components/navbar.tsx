@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -44,7 +45,15 @@ export default function Navbar() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center z-20">
-            <div className="relative h-12 w-48">
+            <div className="flex items-center space-x-2">
+              <div className="relative h-10 w-10">
+                <Image
+                  src="/logo-magic-box-roma.png"
+                  alt="MagicBox Roma Logo Icon"
+                  fill
+                  className="object-contain"
+                />
+              </div>
               {isScrolled ? (
                 <div className="flex items-center">
                   <span className="text-xl font-bold text-secondary">Magic</span>
