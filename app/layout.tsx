@@ -11,7 +11,7 @@ export const metadata = {
   title: "Magic Box Roma - Spedizioni, Imballaggi e Servizi",
   description: "Servizi premium di spedizione, imballaggio professionale, ritiro a domicilio e molto altro a Roma",
   icons: {
-    icon: '/magicbox.ico'
+    icon: '/magicboxfav.ico'
   }
 }
 
