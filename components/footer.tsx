@@ -49,32 +49,32 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-white/70 hover:text-primary transition-colors">
+                <Link href="/#servizi" className="text-white/70 hover:text-primary transition-colors">
                   Spedizioni Nazionali
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-white/70 hover:text-primary transition-colors">
+                <Link href="/#servizi" className="text-white/70 hover:text-primary transition-colors">
                   Spedizioni Internazionali
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-white/70 hover:text-primary transition-colors">
+                <Link href="/#servizi" className="text-white/70 hover:text-primary transition-colors">
                   Imballaggi Professionali
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-white/70 hover:text-primary transition-colors">
+                <Link href="/#servizi" className="text-white/70 hover:text-primary transition-colors">
                   Ritiro a Domicilio
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-white/70 hover:text-primary transition-colors">
+                <Link href="/#servizi" className="text-white/70 hover:text-primary transition-colors">
                   Servizio Express Roma
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-white/70 hover:text-primary transition-colors">
+                <Link href="/#servizi" className="text-white/70 hover:text-primary transition-colors">
                   Magazzinaggio
                 </Link>
               </li>
