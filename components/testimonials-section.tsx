@@ -13,7 +13,7 @@ const testimonials = [
     content:
       "Collaboro con Magic box da quasi 6 mesi ormai, servendomi,per la mia società con la quale effettuo forniture di vario genere, del Servizio di logistica e spedizione! Grazie alla loro disponibilità e professionalità gestisco il tutto dal mio telefono! Disponibili nel risolvere qualsiasi intoppo si possa creare e rapidi nella gestione e soluzione del tutto! Ragazzi giovani e super preparati! Proseguiamo con la nostra collaborazione! Avanti tutta, sempre al top!",
     rating: 5,
-    image: "/persona5.png"
+    image: "/user.png"
   },
   {
     name: "Francesca Citarella",
@@ -21,7 +21,7 @@ const testimonials = [
     content:
       "Ho iniziato a lavorare con loro e mi sono trovata subito benissimo. Ho uno shoponline e loro seguono e si occupano delle mie spedizioni dall'inizio alla fine. Consigliati e approvati!",
     rating: 5,
-    image: "/persona3.png"
+    image: "/user.png"
   },
   {
     name: "Arturo Nanni",
@@ -29,7 +29,7 @@ const testimonials = [
     content:
       "Un punto eccezionale per ricevere e spedire pacchi di ogni genere. Il personale molto gentile e preciso nei veri servizi Bravi Magic Box e complimenti per il vostro lavoro con simpatia e ammirazione Arthur Nanni",
     rating: 5,
-    image: "/persona1.png"
+    image: "/user.png"
   },
   {
     name: "Edoardo Scrima",
@@ -37,7 +37,7 @@ const testimonials = [
     content:
       "Servizio ottimo. Ho chiesto loro di spedirmi un pacco in Francia, a Parigi, e sono stati super efficienti. Dopo neanche 5 giorni il pacco era già arrivato a casa. Inoltre il personale è cordiale e disponibile a cercare di soddisfare ogni richiesta del cliente.",
     rating: 5,
-    image: "/persona4.png"
+    image: "/user.png"
   },
   {
     name: "Alessandro Valeri",
@@ -45,7 +45,7 @@ const testimonials = [
     content:
       "Abbiamo contattato la magic.box. per la spedizione delle valigie per la nostra settimana bianca, che dire! Esperienza fantastica precisi e puntuali sia all'andata che al ritorno, ragazzi in gamba, gentili ed economici. Sicuramente consigliato.",
     rating: 5,
-    image: "/persona2.png"
+    image: "/user.png"
   },
 
 ]
@@ -60,7 +60,7 @@ export default function TestimonialsSection() {
   const displayCount = 1 // mobile
   const displayCountTablet = 2 // tablet
   const displayCountDesktop = 3 // desktop
-  
+
   // Calcolo numero massimo di pagine possibili (solo 2 pagine sul desktop)
   const maxPages = 2
 
@@ -70,13 +70,13 @@ export default function TestimonialsSection() {
       setIsMobile(window.innerWidth < 768)
       setIsTablet(window.innerWidth >= 768 && window.innerWidth < 1024)
     }
-    
+
     // Imposta i valori iniziali
     handleResize()
-    
+
     // Aggiungi l'event listener
     window.addEventListener('resize', handleResize)
-    
+
     // Cleanup
     return () => window.removeEventListener('resize', handleResize)
   }, [])
@@ -133,7 +133,7 @@ export default function TestimonialsSection() {
       ].filter(Boolean);
     } else {
       // Su desktop, prima pagina: primi 3, seconda pagina: ultimi 2
-      return currentIndex === 0 
+      return currentIndex === 0
         ? testimonials.slice(0, 3)  // Prima pagina: primi 3 testimonial
         : testimonials.slice(3);    // Seconda pagina: ultimi 2 testimonial
     }
@@ -180,19 +180,19 @@ export default function TestimonialsSection() {
             className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-opacity duration-300 ${isAnimating ? "opacity-0" : "opacity-100"}`}
           >
             {getVisibleTestimonials().map((testimonial, index) => (
-              <Card 
-                key={testimonial.name} 
+              <Card
+                key={testimonial.name}
                 className="shadow-lg border-none hover:shadow-xl transition-all duration-300"
               >
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-3">
                       <div className="h-12 w-12 rounded-full overflow-hidden">
-                        <Image 
-                          src={testimonial.image} 
-                          alt={testimonial.name} 
-                          width={48} 
-                          height={48} 
+                        <Image
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          width={48}
+                          height={48}
                           className="object-cover w-full h-full"
                         />
                       </div>

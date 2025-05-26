@@ -102,7 +102,7 @@ export default function Footer() {
               <li className="flex flex-col items-center md:flex-row md:items-start gap-3">
                 <Clock className="h-5 w-5 text-primary flex-shrink-0" />
                 <span className="text-white/70">
-                  Lun-Ven: 9:00 - 19:00
+                  Lun-Ven: 9:00 - 13:00 / 14:30 - 19:00
                   <br />
                   Sab: 9:00 - 13:00
                 </span>
