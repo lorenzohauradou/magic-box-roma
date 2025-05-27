@@ -10,7 +10,7 @@ import FaqSection from "@/components/faq-section"
 import AboutSection from "@/components/about-section"
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex min-h-screen flex-col overflow-x-hidden">
       <HeroSection />
       <ServicesSection />
       <AboutSection />
