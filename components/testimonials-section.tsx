@@ -14,7 +14,7 @@ const testimonials = [
       "Collaboro con Magic box da quasi 6 mesi ormai, servendomi,per la mia società con la quale effettuo forniture di vario genere, del Servizio di logistica e spedizione! Grazie alla loro disponibilità e professionalità gestisco il tutto dal mio telefono! Disponibili nel risolvere qualsiasi intoppo si possa creare e rapidi nella gestione e soluzione del tutto! Ragazzi giovani e super preparati! Proseguiamo con la nostra collaborazione! Avanti tutta, sempre al top!",
     rating: 5,
     image: "/user.png",
-    content_screenshot: "/recensione.png"
+    content_screenshot: "/recensione.webp"
   },
   {
     name: "Francesca Citarella",
@@ -23,7 +23,7 @@ const testimonials = [
       "Ho iniziato a lavorare con loro e mi sono trovata subito benissimo. Ho uno shoponline e loro seguono e si occupano delle mie spedizioni dall'inizio alla fine. Consigliati e approvati!",
     rating: 5,
     image: "/user.png",
-    content_screenshot: "/recensione1.png"
+    content_screenshot: "/recensione1.webp"
   },
   {
     name: "Arturo Nanni",
@@ -32,7 +32,7 @@ const testimonials = [
       "Un punto eccezionale per ricevere e spedire pacchi di ogni genere. Il personale molto gentile e preciso nei veri servizi Bravi Magic Box e complimenti per il vostro lavoro con simpatia e ammirazione Arthur Nanni",
     rating: 5,
     image: "/user.png",
-    content_screenshot: "/recensione2.png"
+    content_screenshot: "/recensione2.webp"
   },
   {
     name: "Edoardo Scrima",
@@ -41,7 +41,7 @@ const testimonials = [
       "Servizio ottimo. Ho chiesto loro di spedirmi un pacco in Francia, a Parigi, e sono stati super efficienti. Dopo neanche 5 giorni il pacco era già arrivato a casa. Inoltre il personale è cordiale e disponibile a cercare di soddisfare ogni richiesta del cliente.",
     rating: 5,
     image: "/user.png",
-    content_screenshot: "/recensione3.png"
+    content_screenshot: "/recensione3.webp"
   },
   {
     name: "Alessandro Valeri",
@@ -50,7 +50,7 @@ const testimonials = [
       "Abbiamo contattato la magic.box. per la spedizione delle valigie per la nostra settimana bianca, che dire! Esperienza fantastica precisi e puntuali sia all'andata che al ritorno, ragazzi in gamba, gentili ed economici. Sicuramente consigliato.",
     rating: 5,
     image: "/user.png",
-    content_screenshot: "/recensione4.png"
+    content_screenshot: "/recensione4.webp"
   },
 ]
 
