@@ -183,9 +183,10 @@ export default function TestimonialsSection() {
             {getVisibleTestimonials().map((testimonial, index) => (
               <Card
                 key={testimonial.name}
-                className="shadow-lg border-none hover:shadow-xl transition-all duration-300 bg-[#202124]"
+                className="shadow-lg border border-gray-700 hover:border-gray-500 hover:shadow-xl transition-all duration-300 bg-[#202124] relative overflow-hidden group"
               >
-                <CardContent className="p-6 text-white">
+                <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <CardContent className="p-6 text-white relative">
                   <div className="flex items-center justify-end mb-4">
                     <div className="flex">
                       {[...Array(5)].map((_, i) => (
@@ -196,16 +197,23 @@ export default function TestimonialsSection() {
                       ))}
                     </div>
                   </div>
-                  <div className="mt-4 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+                  <div className="mt-4 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-gradient-to-r from-gray-800 to-gray-900 p-[1px]">
                     <Image
                       src={testimonial.content_screenshot}
                       alt="Recensione Google originale"
                       width={600}
                       height={300}
-                      className="w-full h-auto object-contain"
+                      className="w-full h-auto object-contain rounded-lg"
                     />
                   </div>
                   <div className="mt-4 text-sm text-gray-300 flex items-center justify-end gap-1">
+                    <Image
+                      src="/search.png"
+                      alt="Google Search Icon"
+                      width={16}
+                      height={16}
+                      className="mr-1"
+                    />
                     <a href="https://www.google.com/search?sa=X&sca_esv=07554fca3e6d53b6&tbm=lcl&sxsrf=AE3TifO4J2clvzz3RlWAAyuJcDXBzh58Ew:1748344091472&q=Magic%20Box%20Roma%20Reviews&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxI2NTUwNzE3NTSzNLI0MjOwNDQx38DI-IpRzDcxPTNZwSm_QiEoPzdRISi1LDO1vHgRKw4JAHi401lMAAAA&rldimm=5507475169292609147&hl=en-IT&ved=0CBAQ5foLahcKEwi41ai8wcONAxUAAAAAHQAAAAAQCg&biw=1334&bih=730&dpr=2#lkt=LocalPoiReviews&arid=ChdDSUhNMG9nS0VJQ0FnTUNBanNpRzZnRRAB" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">
                       Google
                     </a>
