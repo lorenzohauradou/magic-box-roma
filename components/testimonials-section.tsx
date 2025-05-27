@@ -13,7 +13,8 @@ const testimonials = [
     content:
       "Collaboro con Magic box da quasi 6 mesi ormai, servendomi,per la mia società con la quale effettuo forniture di vario genere, del Servizio di logistica e spedizione! Grazie alla loro disponibilità e professionalità gestisco il tutto dal mio telefono! Disponibili nel risolvere qualsiasi intoppo si possa creare e rapidi nella gestione e soluzione del tutto! Ragazzi giovani e super preparati! Proseguiamo con la nostra collaborazione! Avanti tutta, sempre al top!",
     rating: 5,
-    image: "/user.png"
+    image: "/user.png",
+    content_screenshot: "/recensione.png"
   },
   {
     name: "Francesca Citarella",
@@ -21,7 +22,8 @@ const testimonials = [
     content:
       "Ho iniziato a lavorare con loro e mi sono trovata subito benissimo. Ho uno shoponline e loro seguono e si occupano delle mie spedizioni dall'inizio alla fine. Consigliati e approvati!",
     rating: 5,
-    image: "/user.png"
+    image: "/user.png",
+    content_screenshot: "/recensione1.png"
   },
   {
     name: "Arturo Nanni",
@@ -29,7 +31,8 @@ const testimonials = [
     content:
       "Un punto eccezionale per ricevere e spedire pacchi di ogni genere. Il personale molto gentile e preciso nei veri servizi Bravi Magic Box e complimenti per il vostro lavoro con simpatia e ammirazione Arthur Nanni",
     rating: 5,
-    image: "/user.png"
+    image: "/user.png",
+    content_screenshot: "/recensione2.png"
   },
   {
     name: "Edoardo Scrima",
@@ -37,7 +40,8 @@ const testimonials = [
     content:
       "Servizio ottimo. Ho chiesto loro di spedirmi un pacco in Francia, a Parigi, e sono stati super efficienti. Dopo neanche 5 giorni il pacco era già arrivato a casa. Inoltre il personale è cordiale e disponibile a cercare di soddisfare ogni richiesta del cliente.",
     rating: 5,
-    image: "/user.png"
+    image: "/user.png",
+    content_screenshot: "/recensione3.png"
   },
   {
     name: "Alessandro Valeri",
@@ -45,9 +49,9 @@ const testimonials = [
     content:
       "Abbiamo contattato la magic.box. per la spedizione delle valigie per la nostra settimana bianca, che dire! Esperienza fantastica precisi e puntuali sia all'andata che al ritorno, ragazzi in gamba, gentili ed economici. Sicuramente consigliato.",
     rating: 5,
-    image: "/user.png"
+    image: "/user.png",
+    content_screenshot: "/recensione4.png"
   },
-
 ]
 
 export default function TestimonialsSection() {
@@ -70,13 +74,10 @@ export default function TestimonialsSection() {
       setIsMobile(window.innerWidth < 768)
       setIsTablet(window.innerWidth >= 768 && window.innerWidth < 1024)
     }
-
     // Imposta i valori iniziali
     handleResize()
-
     // Aggiungi l'event listener
     window.addEventListener('resize', handleResize)
-
     // Cleanup
     return () => window.removeEventListener('resize', handleResize)
   }, [])
@@ -182,25 +183,10 @@ export default function TestimonialsSection() {
             {getVisibleTestimonials().map((testimonial, index) => (
               <Card
                 key={testimonial.name}
-                className="shadow-lg border-none hover:shadow-xl transition-all duration-300"
+                className="shadow-lg border-none hover:shadow-xl transition-all duration-300 bg-[#202124]"
               >
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className="h-12 w-12 rounded-full overflow-hidden">
-                        <Image
-                          src={testimonial.image}
-                          alt={testimonial.name}
-                          width={48}
-                          height={48}
-                          className="object-cover w-full h-full"
-                        />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-secondary">{testimonial.name}</p>
-                        <p className="text-sm text-gray-500">{testimonial.role}</p>
-                      </div>
-                    </div>
+                <CardContent className="p-6 text-white">
+                  <div className="flex items-center justify-end mb-4">
                     <div className="flex">
                       {[...Array(5)].map((_, i) => (
                         <Star
@@ -210,7 +196,20 @@ export default function TestimonialsSection() {
                       ))}
                     </div>
                   </div>
-                  <p className="text-gray-600 italic">"{testimonial.content}"</p>
+                  <div className="mt-4 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <Image
+                      src={testimonial.content_screenshot}
+                      alt="Recensione Google originale"
+                      width={600}
+                      height={300}
+                      className="w-full h-auto object-contain"
+                    />
+                  </div>
+                  <div className="mt-4 text-sm text-gray-300 flex items-center justify-end gap-1">
+                    <a href="https://www.google.com/search?sa=X&sca_esv=07554fca3e6d53b6&tbm=lcl&sxsrf=AE3TifO4J2clvzz3RlWAAyuJcDXBzh58Ew:1748344091472&q=Magic%20Box%20Roma%20Reviews&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxI2NTUwNzE3NTSzNLI0MjOwNDQx38DI-IpRzDcxPTNZwSm_QiEoPzdRISi1LDO1vHgRKw4JAHi401lMAAAA&rldimm=5507475169292609147&hl=en-IT&ved=0CBAQ5foLahcKEwi41ai8wcONAxUAAAAAHQAAAAAQCg&biw=1334&bih=730&dpr=2#lkt=LocalPoiReviews&arid=ChdDSUhNMG9nS0VJQ0FnTUNBanNpRzZnRRAB" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">
+                      Google
+                    </a>
+                  </div>
                 </CardContent>
               </Card>
             ))}
