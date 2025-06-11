@@ -41,7 +41,7 @@ export default function ProcessSection() {
       icon: <PackagePlus className="h-12 w-12 text-primary" />,
       title: "Prepariamo il Pacco",
       description:
-        "Portiamo i tuoi oggetti al negozio o li ritiriamo a domicilio, e li imballiamo con materiali premium.",
+        "Porta i tuoi oggetti al negozio o li ritiriamo a domicilio, e li imballiamo con materiali premium.",
       color: "bg-gradient-to-br from-primary-50 to-primary-100",
       delay: 200,
     },
@@ -106,7 +106,7 @@ export default function ProcessSection() {
         </div>
 
         <div className="text-center mt-16 reveal">
-          <a 
+          <a
             href="https://wa.me/393515947075?text=Ciao%2C%20necessito%20maggiori%20informazioni%20riguardo%20ai%20vostri%20servizi."
             target="_blank"
             rel="noopener noreferrer"
