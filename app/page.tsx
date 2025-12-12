@@ -21,6 +21,7 @@ export default function Home() {
       <FaqSection />
       <CtaSection />
       <WhatsAppButton />
+
     </main>
   )
 }
