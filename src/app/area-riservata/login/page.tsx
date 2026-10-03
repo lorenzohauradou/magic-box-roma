@@ -24,7 +24,6 @@ export default async function LoginPage({
   return (
     <div className="flex min-h-screen items-center justify-center bg-slate-50 p-6 sm:p-12">
       <div className="w-full max-w-sm space-y-8 rounded-xl bg-white p-8 shadow-sm border border-slate-100">
-        {/* Logo e Nome */}
         <div className="flex items-center gap-3">
           <Image
             src="/logo-magic-box-roma.png"
@@ -41,24 +40,18 @@ export default async function LoginPage({
           </div>
         </div>
 
-        {/* Titolo e Descrizione */}
         <div className="space-y-2">
           <h2 className="text-2xl font-bold tracking-tight text-slate-900">
             Accedi all&apos;area riservata
           </h2>
-          <p className="text-sm text-slate-500">
-            Inserisci le credenziali fornite dall&apos;amministratore.
-          </p>
         </div>
 
-        {/* Messaggi di errore/stato */}
         {messaggio ? (
           <p role="alert" className="rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-800">
             {messaggio}
           </p>
         ) : null}
 
-        {/* Form o avviso di configurazione */}
         {configurato ? (
           <LoginForm next={next} />
         ) : (
@@ -67,7 +60,6 @@ export default async function LoginPage({
           </div>
         )}
 
-        {/* Link di ritorno */}
         <div>
           <Link
             href="/"
