@@ -9,12 +9,12 @@ import { cercaClienti, type ClienteSuggerito } from "@/app/area-riservata/(app)/
 import { cn } from "@/lib/utils"
 
 export function ClienteCombobox({
-  onSelect,
+  onSelectAction,
   selezionatoId,
   placeholder = "Cerca un cliente in archivio…",
   className,
 }: {
-  onSelect: (cliente: ClienteSuggerito) => void
+  onSelectAction: (cliente: ClienteSuggerito) => void
   selezionatoId?: string | null
   placeholder?: string
   className?: string
@@ -79,7 +79,7 @@ export function ClienteCombobox({
                       key={c.id}
                       value={c.id}
                       onSelect={() => {
-                        onSelect(c)
+                        onSelectAction(c)
                         setAperto(false)
                         setQuery("")
                       }}
