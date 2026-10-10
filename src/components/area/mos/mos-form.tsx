@@ -144,7 +144,7 @@ function Anagrafica({ prefisso }: { prefisso: "mitt" | "dest" }) {
     <Sezione
       titolo={isMitt ? "Cliente mittente" : "Destinatario"}
       sottotitolo={isMitt ? "Chi consegna il pacco al banco. L'email serve per inviare la copia del modulo." : "A chi va consegnato il pacco."}
-      azione={<ClienteCombobox onSelect={applicaCliente} selezionatoId={clienteId} />}
+      azione={<ClienteCombobox onSelectAction={applicaCliente} selezionatoId={clienteId} />}
     >
       {clienteId ? (
         <div className="flex items-center justify-between gap-3 rounded-md border border-primary/20 bg-primary/5 px-3 py-2 text-xs text-slate-600 sm:col-span-6">
