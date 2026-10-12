@@ -2,6 +2,7 @@ import React from "react"
 import { Document, Image, Line, Page, StyleSheet, Svg, Text, View, renderToBuffer } from "@react-pdf/renderer"
 import type { Mos } from "@/types/database"
 import { LOGO_PNG_DATA_URL } from "@/lib/pdf/logo"
+import { TIMBRO_PNG_DATA_URL } from "@/lib/pdf/timbro"
 import { CONDIZIONI_MOS, DICHIARAZIONE_FIRMA } from "./condizioni"
 import { TIPI_SERVIZIO } from "./schema"
 
@@ -47,7 +48,8 @@ const s = StyleSheet.create({
   footerSx: { width: 190, gap: 8 },
   footerDx: { flex: 1 },
   timbro: { borderWidth: 1.4, borderColor: ARANCIO, height: 78, padding: 6, justifyContent: "flex-start" },
-  timbroLabel: { fontSize: 8, color: NERO },
+  timbroLabel: { fontSize: 8, color: NERO, marginBottom: 2 },
+  timbroImg: { width: 150, height: 55, objectFit: "contain", marginTop: 2 },
   firmaBox: { borderWidth: 1.4, borderColor: ARANCIO, padding: 6, minHeight: 120 },
   firmaTitolo: { fontFamily: "Helvetica-Bold", color: ARANCIO, fontSize: 9.5, letterSpacing: 0.6, marginBottom: 3 },
   firmaTesto: { fontSize: 5.6, color: GRIGIO, lineHeight: 1.25 },
@@ -268,6 +270,7 @@ export function MosDocument({ mos }: { mos: Mos }) {
           <View style={s.footerSx}>
             <View style={s.timbro}>
               <Text style={s.timbroLabel}>Timbro e firma Danema SRLS</Text>
+              <Image src={TIMBRO_PNG_DATA_URL} style={s.timbroImg} />
             </View>
             <View style={s.firmaBox}>
               <Text style={s.firmaTitolo}>FIRMA CLIENTE</Text>
