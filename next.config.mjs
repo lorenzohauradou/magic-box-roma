@@ -14,7 +14,7 @@ const nextConfig = {
 
   // Forza Vercel a includere i file dei font fisici di pdfkit nella build serverless
   outputFileTracingIncludes: {
-    '/area-riservata/mos/[id]/pdf': ['./node_modules/pdfkit/js/standard-fonts/**/*'],
+    '/**/*': ['./node_modules/pdfkit/js/standard-fonts/**/*'],
   },
 
   experimental: {

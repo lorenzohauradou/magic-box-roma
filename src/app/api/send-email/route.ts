@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-// Istanzia Resend usando la chiave API dalle variabili d'ambiente
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Inserisci l'email del cliente dove devono arrivare le richieste
