@@ -25,6 +25,9 @@ Percorso: `https://www.magicboxroma.it/area-riservata` (non indicizzato, escluso
    (gli account li crea solo l'amministratore dall'area riservata).
 3. In **SQL Editor** incolla ed esegui per intero `supabase/migrations/0001_area_riservata.sql`.
    Crea tabelle (`profili`, `clienti`, `mos`, `confronti`), policy RLS, trigger e il bucket privato `poste-files`.
+   Subito dopo esegui `supabase/migrations/0002_sicurezza_prestazioni.sql` (trigger sicuro, policy RLS ottimizzate, indici).
+4. Le funzioni Vercel girano nella stessa regione del database: `vercel.json` imposta `dub1` (Dublino) perché il
+   progetto Supabase è in `eu-west-1` (Irlanda). Se il database cambia regione, aggiorna anche `vercel.json`.
 
 ### 2. Variabili d'ambiente
 
@@ -146,3 +149,9 @@ Soglia di rilevanza: 1,00 € (`sogliaRilevante` in `eseguiConfronto`).
 - Le RLS Postgres consentono l'accesso ai dati solo a utenti con profilo **attivo**; un utente disattivato viene
   espulso al primo accesso (`ban` in Auth + `attivo=false`).
 - La chiave `service_role` è usata solo nelle azioni admin di gestione utenti, mai nel client.
+- Un utente che si registrasse da solo (se la registrazione libera fosse attiva) riceve un profilo `operatore`
+  **disattivato**: il ruolo non viene mai letto dai metadati scelti dall'utente.
+- Eliminare un modulo non in bozza è riservato agli admin anche a livello di RLS, non solo nell'interfaccia.
+- I cookie di sessione sono `httpOnly` (non c'è un client Supabase nel browser) e la sessione si verifica in locale
+  con le chiavi JWT asimmetriche del progetto (`getClaims`).
+- Google Tag Manager e Vercel Analytics sono caricati solo nel sito pubblico, mai nell'area riservata.

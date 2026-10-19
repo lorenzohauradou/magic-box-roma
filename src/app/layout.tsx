@@ -2,8 +2,6 @@ import type React from "react"
 import type { Metadata } from "next"
 import "@/app/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { Analytics } from "@vercel/analytics/react"
-import { GoogleTagManager } from '@next/third-parties/google'
 
 const siteUrl = "https://www.magicboxroma.it"
 
@@ -74,49 +72,6 @@ export const metadata: Metadata = {
   }
 }
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Magic Box Roma",
-  "image": "https://www.magicboxroma.it/logo-magic-box-roma.png",
-  "description": "Spedizioni nazionali e internazionali, imballaggio professionale, ritiro a domicilio e servizi postali a Roma.",
-  "@id": "https://www.magicboxroma.it",
-  "url": "https://www.magicboxroma.it",
-  "telephone": "+39 06 1234567",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Via Example 123",
-    "addressLocality": "Roma",
-    "postalCode": "00100",
-    "addressCountry": "IT"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 41.9028,
-    "longitude": 12.4964
-  },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00",
-      "closes": "18:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
-      "opens": "09:00",
-      "closes": "13:00"
-    }
-  ],
-  "priceRange": "€€",
-  "areaServed": {
-    "@type": "City",
-    "name": "Roma"
-  },
-  "serviceType": ["Spedizioni", "Imballaggi", "Ritiro a domicilio", "Servizi postali"]
-}
-
 export default function RootLayout({
   children,
 }: {
@@ -124,18 +79,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="it" suppressHydrationWarning>
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
-      <GoogleTagManager gtmId="GTM-KCZD8GVK" />
       <body>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
           {children}
         </ThemeProvider>
-        <Analytics />
       </body>
     </html>
   )

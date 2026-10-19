@@ -80,7 +80,22 @@ export default async function DettaglioMosPage({ params }: { params: Promise<{ i
         }
         descrizione={`Modulo del ${formatData(mos.data)} · registrato il ${formatDataOra(mos.created_at)}${mos.creatore?.nome ? ` da ${mos.creatore.nome}` : ""}`}
         briciole={[{ label: "Archivio MOS", href: "/area-riservata/mos" }, { label: numero }]}
-        azioni={<MosAzioni mos={mos} ruolo={profilo.ruolo} />}
+        azioni={
+          <MosAzioni
+            mos={{
+              id: mos.id,
+              stato: mos.stato,
+              corriere: mos.corriere,
+              lettera_di_vettura: mos.lettera_di_vettura,
+              data_spedizione: mos.data_spedizione,
+              mitt_email: mos.mitt_email,
+              copia_inviata_a: mos.copia_inviata_a,
+              copia_inviata_il: mos.copia_inviata_il,
+              firmata: Boolean(mos.firma_png),
+            }}
+            ruolo={profilo.ruolo}
+          />
+        }
       />
 
       <Stepper stato={mos.stato} />

@@ -29,7 +29,6 @@ export function InviaCopiaDialog({ mosId, emailPredefinita, giaInviata }: { mosI
       // Primo invio: il modulo è completo e si torna all'archivio.
       // Reinvio di una copia già spedita: si resta sul modulo.
       if (!giaInviata) router.push("/area-riservata/mos")
-      router.refresh()
     })
   }
 

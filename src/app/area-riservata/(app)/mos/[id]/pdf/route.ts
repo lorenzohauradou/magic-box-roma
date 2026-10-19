@@ -31,9 +31,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
     })
   } catch (err) {
     console.error("[PDF MOS] Errore durante la generazione del PDF:", err)
-    return new Response(
-      JSON.stringify({ error: "Errore interno durante la generazione del PDF", details: String(err) }),
-      { status: 500, headers: { "Content-Type": "application/json" } }
-    )
+    // Il dettaglio resta nei log del server: al browser non arrivano stack o percorsi interni.
+    return new Response("Errore interno durante la generazione del PDF", { status: 500 })
   }
 }

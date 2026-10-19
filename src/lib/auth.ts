@@ -8,22 +8,22 @@ import type { Profilo } from "@/types/database"
 export const getProfiloCorrente = cache(async (): Promise<Profilo | null> => {
   if (!isSupabaseConfigured()) return null
   const supabase = await createClient()
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-  if (!user) return null
+  // JWT verificato in locale (chiavi asimmetriche): l'unico round-trip è la lettura del profilo.
+  const { data: auth } = await supabase.auth.getClaims()
+  const claims = auth?.claims
+  if (!claims) return null
 
-  const { data } = await supabase.from("profili").select("*").eq("id", user.id).maybeSingle()
+  const { data } = await supabase.from("profili").select("*").eq("id", claims.sub).maybeSingle()
   if (!data) {
     // Utente esistente ma senza profilo: trattato come non attivo.
     return {
-      id: user.id,
-      email: user.email ?? "",
+      id: claims.sub,
+      email: claims.email ?? "",
       nome: "",
       ruolo: "operatore",
       attivo: false,
-      created_at: user.created_at,
-      updated_at: user.created_at,
+      created_at: "",
+      updated_at: "",
     }
   }
   return data as Profilo

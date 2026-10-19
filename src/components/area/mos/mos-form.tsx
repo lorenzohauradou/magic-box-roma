@@ -372,7 +372,6 @@ export function MosForm({
       }
       toast.success(res.messaggio ?? "Modulo salvato")
       router.push(`/area-riservata/mos/${res.dati.id}`)
-      router.refresh()
     } finally {
       setSalvataggio(false)
     }

@@ -1,5 +1,6 @@
 import { createServerClient } from "@supabase/ssr"
 import { NextResponse, type NextRequest } from "next/server"
+import { COOKIE_OPTIONS } from "./env"
 
 export const AREA_PATH = "/area-riservata"
 export const LOGIN_PATH = `${AREA_PATH}/login`
@@ -20,6 +21,7 @@ export async function updateSession(request: NextRequest) {
   }
 
   const supabase = createServerClient(url, anonKey, {
+    cookieOptions: COOKIE_OPTIONS,
     cookies: {
       getAll() {
         return request.cookies.getAll()
@@ -32,9 +34,9 @@ export async function updateSession(request: NextRequest) {
     },
   })
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  // Con le chiavi JWT asimmetriche il token si verifica in locale: nessuna chiamata al server Auth.
+  const { data } = await supabase.auth.getClaims()
+  const user = data?.claims
 
   const { pathname } = request.nextUrl
   const isLogin = pathname === LOGIN_PATH

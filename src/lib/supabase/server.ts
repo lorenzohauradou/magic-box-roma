@@ -1,6 +1,6 @@
 import { createServerClient } from "@supabase/ssr"
 import { cookies } from "next/headers"
-import { getSupabaseEnv } from "./env"
+import { COOKIE_OPTIONS, getSupabaseEnv } from "./env"
 
 /**
  * Client Supabase per Server Components, Server Actions e Route Handlers.
@@ -11,6 +11,7 @@ export async function createClient() {
   const { url, anonKey } = getSupabaseEnv()
 
   return createServerClient(url, anonKey, {
+    cookieOptions: COOKIE_OPTIONS,
     cookies: {
       getAll() {
         return cookieStore.getAll()

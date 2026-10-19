@@ -35,7 +35,7 @@ export default async function ArchivioPage({ searchParams }: { searchParams: Pro
     if (numero !== null) {
       query = query.eq("numero", numero)
     } else {
-      const termine = q.toLowerCase().replace(/[,%()]/g, " ").replace(/\s+/g, " ").trim()
+      const termine = q.toLowerCase().replace(/[,%()"\\]/g, " ").replace(/\s+/g, " ").trim()
       const like = `%${termine}%`
       query = query.or(`ricerca.ilike.${like},lettera_di_vettura.ilike.${like}`)
     }

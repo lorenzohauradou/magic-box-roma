@@ -32,7 +32,7 @@ export type ClienteSuggerito = Pick<
 
 export async function cercaClienti(q: string): Promise<ClienteSuggerito[]> {
   await requireProfilo()
-  const termine = q.trim().replace(/[,%()]/g, " ").replace(/\s+/g, " ")
+  const termine = q.trim().replace(/[,%()"\\]/g, " ").replace(/\s+/g, " ")
   if (termine.length < 2) return []
   const supabase = await createClient()
   const like = `%${termine}%`
@@ -142,13 +142,19 @@ async function caricaMos(supabase: SupabaseClient, id: string): Promise<Mos | nu
   return (data as Mos | null) ?? null
 }
 
+/** Solo lo stato: evita di leggere l'intero record (firma in base64 compresa) quando non serve. */
+async function statoMos(supabase: SupabaseClient, id: string): Promise<Mos["stato"] | null> {
+  const { data } = await supabase.from("mos").select("stato").eq("id", id).maybeSingle()
+  return (data?.stato as Mos["stato"] | undefined) ?? null
+}
+
 export async function segnaStampato(id: string): Promise<Risultato> {
   await requireProfilo()
   const supabase = await createClient()
-  const mos = await caricaMos(supabase, id)
-  if (!mos) return { ok: false, errore: "Modulo non trovato" }
+  const stato = await statoMos(supabase, id)
+  if (!stato) return { ok: false, errore: "Modulo non trovato" }
   const patch: Partial<Mos> = { stampato_il: new Date().toISOString() }
-  if (mos.stato === "bozza") patch.stato = "stampato"
+  if (stato === "bozza") patch.stato = "stampato"
   const { error } = await supabase.from("mos").update(patch).eq("id", id)
   if (error) return { ok: false, errore: error.message }
   rivalida(id)
@@ -165,10 +171,10 @@ export async function salvaFirma(id: string, firmaPng: string): Promise<Risultat
   const parsed = firmaSchema.safeParse(firmaPng)
   if (!parsed.success) return { ok: false, errore: parsed.error.issues[0]?.message ?? "Firma non valida" }
   const supabase = await createClient()
-  const mos = await caricaMos(supabase, id)
-  if (!mos) return { ok: false, errore: "Modulo non trovato" }
+  const stato = await statoMos(supabase, id)
+  if (!stato) return { ok: false, errore: "Modulo non trovato" }
   const patch: Partial<Mos> = { firma_png: parsed.data, firmato_il: new Date().toISOString() }
-  if (mos.stato === "bozza") patch.stato = "stampato"
+  if (stato === "bozza") patch.stato = "stampato"
   const { error } = await supabase.from("mos").update(patch).eq("id", id)
   if (error) return { ok: false, errore: error.message }
   rivalida(id)
@@ -204,20 +210,21 @@ export async function registraSpedizione(id: string, values: Fase2Values): Promi
     return { ok: false, errore: "Controlla i campi evidenziati.", campi }
   }
   const supabase = await createClient()
-  const esistente = await caricaMos(supabase, id)
-  if (!esistente) return { ok: false, errore: "Modulo non trovato" }
-
-  const { error } = await supabase
+  // Un solo round-trip: l'update restituisce il modulo aggiornato (null se l'id non esiste).
+  const { data, error } = await supabase
     .from("mos")
     .update({ ...parsed.data, stato: "spedito" })
     .eq("id", id)
+    .select("*")
+    .maybeSingle()
   if (error) return { ok: false, errore: error.message }
+  if (!data) return { ok: false, errore: "Modulo non trovato" }
 
-  const mos = await caricaMos(supabase, id)
+  const mos = data as Mos
   let emailInviata = false
   let emailErrore: string | undefined
-  const emailA = mos?.mitt_email?.trim() || undefined
-  if (mos && emailA) {
+  const emailA = mos.mitt_email?.trim() || undefined
+  if (emailA) {
     try {
       await inviaCopiaInterna(supabase, mos, emailA)
       emailInviata = true
@@ -248,9 +255,9 @@ export async function inviaCopia(id: string, email?: string): Promise<Risultato<
 export async function eliminaMos(id: string): Promise<Risultato> {
   const profilo = await requireProfilo()
   const supabase = await createClient()
-  const mos = await caricaMos(supabase, id)
-  if (!mos) return { ok: false, errore: "Modulo non trovato" }
-  if (mos.stato !== "bozza" && profilo.ruolo !== "admin") {
+  const stato = await statoMos(supabase, id)
+  if (!stato) return { ok: false, errore: "Modulo non trovato" }
+  if (stato !== "bozza" && profilo.ruolo !== "admin") {
     return { ok: false, errore: "Solo un amministratore può eliminare un modulo già stampato o spedito." }
   }
   const { error } = await supabase.from("mos").delete().eq("id", id)

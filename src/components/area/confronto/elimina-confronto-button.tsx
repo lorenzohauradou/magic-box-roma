@@ -31,7 +31,6 @@ export function EliminaConfrontoButton({ id, redirectDopo, compatto = false }: {
       }
       toast.success("Confronto eliminato")
       if (redirectDopo) router.push(redirectDopo)
-      router.refresh()
     })
   }
 

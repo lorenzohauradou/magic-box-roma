@@ -60,7 +60,6 @@ export function SpedizioneDialog({
         if (res.dati.emailErrore) toast.warning(`Copia non inviata: ${res.dati.emailErrore}`)
         else toast.info("Nessuna email del mittente: invia la copia manualmente.")
       }
-      router.refresh()
     })
   }
 

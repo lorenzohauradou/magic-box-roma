@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useRef, useState, useTransition } from "react"
-import { useRouter } from "next/navigation"
 import SignaturePad from "signature_pad"
 import { Check, Eraser, Loader2, PenLine, Trash2 } from "lucide-react"
 import { toast } from "sonner"
@@ -11,7 +10,6 @@ import { DICHIARAZIONE_FIRMA } from "@/lib/mos/condizioni"
 import { rimuoviFirma, salvaFirma } from "@/app/area-riservata/(app)/mos/actions"
 
 export function FirmaDialog({ mosId, firmata }: { mosId: string; firmata: boolean }) {
-  const router = useRouter()
   const [aperto, setAperto] = useState(false)
   const [vuota, setVuota] = useState(true)
   const [pending, startTransition] = useTransition()
@@ -68,7 +66,6 @@ export function FirmaDialog({ mosId, firmata }: { mosId: string; firmata: boolea
       }
       toast.success(res.messaggio ?? "Firma salvata")
       setAperto(false)
-      router.refresh()
     })
   }
 
@@ -77,10 +74,7 @@ export function FirmaDialog({ mosId, firmata }: { mosId: string; firmata: boolea
     startTransition(async () => {
       const res = await rimuoviFirma(mosId)
       if (!res.ok) toast.error(res.errore)
-      else {
-        toast.success(res.messaggio ?? "Firma rimossa")
-        router.refresh()
-      }
+      else toast.success(res.messaggio ?? "Firma rimossa")
     })
   }
 

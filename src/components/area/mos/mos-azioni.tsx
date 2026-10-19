@@ -24,18 +24,24 @@ import { FirmaDialog } from "./firma-dialog"
 import { InviaCopiaDialog } from "./invia-copia-dialog"
 import { SpedizioneDialog } from "./spedizione-dialog"
 
-export function MosAzioni({ mos, ruolo }: { mos: Mos; ruolo: Ruolo }) {
+/** Solo i campi usati dalle azioni: la firma (PNG in base64) non viene serializzata verso il browser. */
+export type MosAzioniDati = Pick<
+  Mos,
+  "id" | "stato" | "corriere" | "lettera_di_vettura" | "data_spedizione" | "mitt_email" | "copia_inviata_a" | "copia_inviata_il"
+> & { firmata: boolean }
+
+export function MosAzioni({ mos, ruolo }: { mos: MosAzioniDati; ruolo: Ruolo }) {
   const router = useRouter()
   const [pending, startTransition] = useTransition()
   const pdfUrl = `/area-riservata/mos/${mos.id}/pdf`
   const puoEliminare = mos.stato === "bozza" || ruolo === "admin"
 
+  // Le azioni chiamano revalidatePath: la risposta contiene già la pagina aggiornata, router.refresh() la rigenererebbe due volte.
   function stampa() {
     // La stampa avviene nel browser (finestra PDF); qui registriamo solo lo stato.
     startTransition(async () => {
       const res = await segnaStampato(mos.id)
       if (!res.ok) toast.error(res.errore)
-      else router.refresh()
     })
   }
 
@@ -48,7 +54,6 @@ export function MosAzioni({ mos, ruolo }: { mos: Mos; ruolo: Ruolo }) {
       }
       toast.success(res.messaggio ?? "Modulo eliminato")
       router.push("/area-riservata/mos")
-      router.refresh()
     })
   }
 
@@ -59,7 +64,7 @@ export function MosAzioni({ mos, ruolo }: { mos: Mos; ruolo: Ruolo }) {
           <Printer className="h-4 w-4" /> Stampa / PDF
         </a>
       </Button>
-      <FirmaDialog mosId={mos.id} firmata={Boolean(mos.firma_png)} />
+      <FirmaDialog mosId={mos.id} firmata={mos.firmata} />
       <SpedizioneDialog
         mosId={mos.id}
         corriere={mos.corriere}
