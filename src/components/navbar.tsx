@@ -35,6 +35,9 @@ export default function Navbar() {
     { href: "/#contatti", label: "Contatti" },
   ]
 
+  // Con il menu mobile aperto lo sfondo è scuro anche se la pagina è scrollata: logo e icona restano bianchi.
+  const testoScuro = isScrolled && !isMobileMenuOpen
+
   return (
     <header
       className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-300", {
@@ -54,7 +57,7 @@ export default function Navbar() {
                   className="object-contain"
                 />
               </div>
-              {isScrolled ? (
+              {testoScuro ? (
                 <div className="flex items-center">
                   <span className="text-xl font-bold text-secondary">Magic</span>
                   <span className="text-xl font-bold text-primary">Box</span>
@@ -101,9 +104,9 @@ export default function Navbar() {
             aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
-              <X className={`h-6 w-6 ${isScrolled ? "text-secondary" : "text-white"}`} />
+              <X className={`h-6 w-6 ${testoScuro ? "text-secondary" : "text-white"}`} />
             ) : (
-              <Menu className={`h-6 w-6 ${isScrolled ? "text-secondary" : "text-white"}`} />
+              <Menu className={`h-6 w-6 ${testoScuro ? "text-secondary" : "text-white"}`} />
             )}
           </button>
         </div>

@@ -123,6 +123,11 @@ export default function Footer() {
           >
             Cookie Policy
           </Link>
+          <p className="mt-2">
+            <Link href="/area-riservata" className="text-white/30 text-xs hover:text-white/60 transition-colors">
+              Area riservata
+            </Link>
+          </p>
         </div>
       </div>
     </footer>
